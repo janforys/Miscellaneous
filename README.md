@@ -1,3 +1,3 @@
 # Miscellaneous
-This repository contains my old, simple applications from the beginnings and other.
+This repository contains my old, simple applications from the beginnings and OTHER.
 Jan Foryś 2018 :-)
