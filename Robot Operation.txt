@@ -1,0 +1,87 @@
+﻿/******************************************************************************
+
+            This simple C++ program imitates Robot's arms movement.
+					 Jan Foryś 2018.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+   bool turn_right();
+   bool turn_left();
+   bool move_forward();
+   bool move_backward();
+   bool move_right();
+   bool move_left();
+   
+int main()
+{
+    bool (*operation[6]) () =	// a six-element array of pointers to a function, called without any arguments, returning a bool result
+    {
+        turn_right,
+        turn_left,
+        move_forward,
+        move_backward,
+        move_right,
+        move_left
+    };
+    
+    int menu;
+    while(1)
+    {
+        cout<<"ROBOT OPERATION NR:\n"
+            <<"---------------------\n"
+            <<"0 - Turn the arm right\n"
+            <<"1 - Turn the arm left\n"
+            <<"2 - Move the arm forward\n"
+            <<"3 - Move the arm backward\n"
+            <<"4 - Move the arm right\n"
+            <<"5 - Move the arm left\n"
+            <<"6 - EXIT\n"
+            <<"-----------------------------------------\n"
+            <<"Choose robot's operation and press ENTER:";
+        cin>>menu;
+        switch(menu)	// selection menu
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                operation[menu]();
+                break;
+            case 6: 
+                exit(1);
+            default:
+                break;
+        }
+    }
+}
+    
+   bool turn_right()
+   {
+       cout<<"Turning arm right...\n\n";
+   }
+   bool turn_left()
+   {
+       cout<<"Turning arm left...\n\n";
+   }
+   bool move_forward()
+   {
+       cout<<"Moving arm forward...\n\n";
+   }
+   bool move_backward()
+   {
+       cout<<"Moving arm backward...\n\n";
+   }
+   bool move_right()
+   {
+       cout<<"Moving arm right...\n\n";
+   }
+   bool move_left()
+   {
+       cout<<"Moving arm left...\n\n";
+   }
