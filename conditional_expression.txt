@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+int xxx;
+cout <<"You must answer YES or NO. \n"
+     <<"If YES type 1, \n"
+     <<"if NO, type 0. \n"
+     <<"Do u understand? \n"
+     <<"------------------------ \nYour answer: ";
+    
+cin >> xxx;
+
+cout << "You answered "
+     << (xxx? "YES" : "NO")	// Condition
+     << ", is it true? ;) ";
+}
