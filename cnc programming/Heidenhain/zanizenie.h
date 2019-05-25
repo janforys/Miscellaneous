@@ -1,0 +1,73 @@
+0  BEGIN PGM zanizenie MM 
+1  BLK FORM 0.1 Z  X-80  Y+0  Z-4
+2  BLK FORM 0.2  X+0  Y+40  Z+1
+3  ;
+4  ;---------------------------------------------
+5  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+6  ;
+/ 7  STOP
+8  L  X+0  Y+0 FMAX
+9  ;---------------------------------------------
+10 ;
+11 * - GLOW 20 ZGR
+12 TOOL CALL 4 Z S1000 F200
+13 TOOL DEF 25
+14 M3 M7
+15 L  Z+20 FMAX
+16 L  X-82.5  Y+0 FMAX
+17 L  Z-0.45 FMAX
+18 L  Y+50
+19 L  X-93
+20 L  Y+0
+21 L  X-104
+22 L  Y+50
+23 L  Z+20 FMAX
+24 ;
+25 L  X-82.5  Y+0 FMAX
+26 L  Z-0.9 FMAX
+27 L  Y+50
+28 L  X-93
+29 L  Y+0
+30 L  X-104
+31 L  Y+50
+32 L  Z+20 FMAX
+33 ;
+34 L  Z+50 FMAX
+35 M5 M9
+36 ;
+37 * - FP 8 WYK
+38 TOOL CALL 25 Z S6000 F300 DL+0.01 DR-0.05
+39 TOOL DEF 4
+40 M3 M7
+41 L  Z+20 FMAX
+42 L  X-76  Y+0 FMAX
+43 L  Z-1 FMAX
+44 L  Y+50 F150
+45 L  X-80 F300
+46 L  Y+0
+47 L  X-84
+48 L  Y+50
+49 L  X-88
+50 L  Y+0
+51 L  X-92
+52 L  Y+50
+53 L  X-96
+54 L  Y+0
+55 L  X-100
+56 L  Y+50
+57 L  X-104
+58 L  Y+0
+59 L  X-108
+60 L  Y+50
+61 L  X-112
+62 L  Y+0
+63 L  Z+20 FMAX
+64 ;
+65 L  Z+50 FMAX
+66 M5 M9
+67 ;---------------------------------------------
+68 L  Z-5 R0 FMAX M91
+69 L  X+300  Y+535 R0 FMAX M91
+70 L M30
+71 END PGM zanizenie MM 
