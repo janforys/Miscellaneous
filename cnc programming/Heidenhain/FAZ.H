@@ -1,0 +1,48 @@
+0  BEGIN PGM FAZ MM 
+1  BLK FORM 0.1 Z  X-10  Y-10  Z-10
+2  BLK FORM 0.2  X+10  Y+10  Z+0
+3  ;---------------------------------------------
+4  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+5  ;
+6  L  X+0  Y+0 R0 FMAX
+7  TOOL CALL 30 Z
+8  TOOL DEF 9
+9  ;
+10 ;
+11 CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+12 ;---------------------------------------------
+13 ;
+14 * - fazy 1x45 (faz-90st)
+15 TOOL CALL 26 Z S4000 F120
+/ 16 STOP
+17 TOOL DEF 30
+18 L M3 M8
+19 ;
+20 CYCL DEF 208 SPIRALNE FREZ. OTW. ~
+    Q200=+1    ;BEZPIECZNA WYSOKOSC ~
+    Q201=-1    ;GLEBOKOSC ~
+    Q206= AUTO ;WARTOSC POSUWU WGL. ~
+    Q334=+1    ;GLEBOKOSC DOSUWU ~
+    Q203=+0    ;WSPOLRZEDNE POWIERZ. ~
+    Q204=+50   ;2-GA BEZPIECZNA WYS. ~
+    Q335=+20   ;SREDNICA NOMINALNA ~
+    Q342=+19   ;WYW.WSTEP. SREDNICA ~
+    Q351=-1    ;RODZAJ FREZOWANIA
+21 ;
+22 CALL LBL 1
+23 M5 M9
+24 ;
+25 ;---------------------------------------------
+26 L  Z+0 R0 FMAX M91
+/ 27 L  X+260  Y+535 R0 FMAX M91
+28 L  X+100  Y+365 R0 FMAX
+29 L M30
+30 * - -----------------------------------------
+31 * - LBL1 FAZA
+32 LBL 1
+33 M3
+34 L  X+0  Y+0 R0 FMAX M99
+35 LBL 0
+36 END PGM FAZ MM 
