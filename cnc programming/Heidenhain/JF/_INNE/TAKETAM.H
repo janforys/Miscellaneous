@@ -1,0 +1,54 @@
+0  BEGIN PGM TAKETAM MM 
+1  BLK FORM 0.1 Z  X-100  Y-100  Z-25
+2  BLK FORM 0.2  X+100  Y+100  Z+5
+3  ;---------------------------------------------
+4  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+5  L  X+0  Y+0 R0 FMAX
+6  ;---------------------------------------------
+7  ;
+8  ;
+9  STOP
+10 TOOL CALL 8 Z S6000 F1000 DL+2.5
+11 L  X+0  Y+0 R0 FMAX
+12 M8 M3
+13 ;
+14 Q1 = 53
+15 Q2 = 53.2
+16 Q3 = 0.5
+17 ;
+18 STOP
+19 LBL 2
+20 Q1 = Q1 - Q3
+21 Q2 = Q2 - Q3
+22 CYCL DEF 215 WYSEP.KOL.NA GOT. ~
+    Q200=+1    ;BEZPIECZNA WYSOKOSC ~
+    Q201=-0.01 ;GLEBOKOSC ~
+    Q206=+3000 ;WARTOSC POSUWU WGL. ~
+    Q202=+5    ;GLEBOKOSC DOSUWU ~
+    Q207= AUTO ;POSUW FREZOWANIA ~
+    Q203=+0    ;WSPOLRZEDNE POWIERZ. ~
+    Q204=+50   ;2-GA BEZPIECZNA WYS. ~
+    Q216=+0    ;SRODEK W 1-SZEJ OSI ~
+    Q217=+0    ;SRODEK W 2-SZEJ OSI ~
+    Q222=+Q2   ;SREDNICA WST.OBR.WYB ~
+    Q223=+Q1   ;SRED.WYBR.OBR.NA GOT
+23 CYCL CALL
+24 LBL 0
+25 ;
+26 CALL LBL 2 REP38
+27 ;
+28 ;
+29 M5 M9
+30 ;
+31 ;---------------------------------------------
+32 L  Z-5 R0 FMAX M91
+33 L  X+260  Y+535 R0 FMAX M91
+34 L M30
+35 * - -----------------------------------------
+36 * - LBL1 SRODEK
+37 LBL 1
+38 M3
+39 L  X+0  Y+0 R0 FMAX M99
+40 LBL 0
+41 END PGM TAKETAM MM 

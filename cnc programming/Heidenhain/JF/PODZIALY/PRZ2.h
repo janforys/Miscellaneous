@@ -1,0 +1,39 @@
+0  BEGIN PGM PRZ2 MM 
+1  BLK FORM 0.1 Z  X-50  Y+0  Z-6
+2  BLK FORM 0.2  X+50  Y+50  Z+0
+3  ;---------------------------------------------
+4  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+5  ;---------------------------------------------
+6  STOP
+7  TOOL CALL 18 Z S2200 F150
+8  STOP
+9  M8
+10 CYCL DEF 208 SPIRALNE FREZ. OTW. ~
+    Q200=+0.5  ;BEZPIECZNA WYSOKOSC ~
+    Q201=-6.1  ;GLEBOKOSC ~
+    Q206= AUTO ;WARTOSC POSUWU WGL. ~
+    Q334=+0.4  ;GLEBOKOSC DOSUWU ~
+    Q203=+0    ;WSPOLRZEDNE POWIERZ. ~
+    Q204=+50   ;2-GA BEZPIECZNA WYS. ~
+    Q335=+10.3 ;SREDNICA NOMINALNA ~
+    Q342=+0    ;WYW.WSTEP. SREDNICA ~
+    Q351=+1    ;RODZAJ FREZOWANIA
+11 CALL LBL 1
+12 M5 M9
+13 ;
+14 ;
+15 ;---------------------------------------------
+16 L  Z-5 R0 FMAX M91
+17 L  X+260  Y+535 R0 FMAX M91
+18 L M30
+19 * - -----------------------------------------
+20 * - LBL1 POGL FI10
+21 LBL 1
+22 M3
+23 L  X-34  Y-15 R0 FMAX M99
+24 L  X+34  Y-15 R0 FMAX M99
+25 L  X-34  Y+15 R0 FMAX M99
+26 L  X+34  Y+15 R0 FMAX M99
+27 LBL 0
+28 END PGM PRZ2 MM 

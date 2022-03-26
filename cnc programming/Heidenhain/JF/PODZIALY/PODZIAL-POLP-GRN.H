@@ -1,0 +1,48 @@
+0  BEGIN PGM PODZIAL-POLP-GRN MM 
+1  BLK FORM 0.1 Z  X-50  Y-50  Z+0
+2  BLK FORM 0.2  X+50  Y+50  Z+11
+3  ;---------------------------------------------
+4  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+5  L  X+0  Y+0 FMAX
+6  ;
+7  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+8  CYCL DEF 7.0 PUNKT BAZOWY
+9  CYCL DEF 7.1 IZ-6
+10 ;---------------------------------------------
+11 ;
+/ 12 STOP
+13 * - FP-12-ZGR
+14 TOOL CALL 1 Z S1400 F80 DR-0.01
+15 TOOL DEF 24
+16 M8 M3
+17 L  X-60  Y-7 FMAX
+18 L  Z-1 FMAX
+19 ;
+20 L  Y+0 RR F AUTO
+21 L  X+60 F AUTO
+22 L  Z+50 R0 FMAX
+23 ;
+24 M5 M9
+25 ;
+26 * - FP-8-WYK
+27 TOOL CALL 11 Z S2700 F150 DR-0.035
+/ 28 STOP
+29 TOOL DEF 11
+30 M3 M8
+31 L  X-60  Y-7 FMAX
+32 L  Z-1 FMAX
+33 ;
+34 L  Y+0 RR F AUTO
+35 L  X+60 F AUTO
+36 L  Z+50 FMAX
+37 M5 M9
+38 ;
+39 ;---------------------------------------------
+40 L  Z-5 R0 FMAX M91
+41 L  X+360  Y+535 R0 FMAX M91
+42 L M30
+43 * - -----------------------------------------
+44 ;
+45 END PGM PODZIAL-POLP-GRN MM 

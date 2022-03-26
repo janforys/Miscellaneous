@@ -1,0 +1,44 @@
+0  BEGIN PGM OTWORY-6,6 MM 
+1  BLK FORM 0.1 Z  X-60  Y-60  Z-34
+2  BLK FORM 0.2  X+60  Y+60  Z+0
+3  ;
+4  ;---------------------------------------------
+5  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+6  ;---------------------------------------------
+7  ;
+8  ;
+9  * - 6.6
+10 TOOL CALL 1 Z S4818 F829
+11 TOOL DEF 14
+12 M13
+13 CYCL DEF 200 WIERCENIE ~
+    Q200=+2    ;BEZPIECZNA WYSOKOSC ~
+    Q201=-29   ;GLEBOKOSC ~
+    Q206= AUTO ;WARTOSC POSUWU WGL. ~
+    Q202=+17   ;GLEBOKOSC DOSUWU ~
+    Q210=+0    ;PRZER. CZAS.NA GORZE ~
+    Q203=+0    ;WSPOLRZEDNE POWIERZ. ~
+    Q204=+50   ;2-GA BEZPIECZNA WYS. ~
+    Q211=+0    ;PRZERWA CZAS. DNIE ~
+    Q395=+0    ;REFERENCJA GLEB.
+14 CALL LBL 1
+15 M5 M9
+16 ;
+17 ;---------------------------------------------
+18 L  Z-5 R0 FMAX M91
+19 L  X+260  Y+535 R0 FMAX M91
+20 L M30
+21 * - -----------------------------------------
+22 ;
+23 * - LBL1 POGL FI 11/6.6
+24 LBL 1
+25 M3
+26 L  X+0  Y+48.5 R0 FMAX M99
+27 L  X-46.1  Y+15 R0 FMAX M99
+28 L  X+46.1  Y+15 R0 FMAX M99
+29 L  X-28.5  Y-39.2 R0 FMAX M99
+30 L  X+28.5  Y-39.2 R0 FMAX M99
+31 LBL 0
+32 ;
+33 END PGM OTWORY-6,6 MM 
