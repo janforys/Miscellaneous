@@ -1,0 +1,45 @@
+0  BEGIN PGM 90H7-ZGR-60mm MM 
+1  BLK FORM 0.1 Z  X-140  Y-100  Z-18
+2  BLK FORM 0.2  X+140  Y+100  Z+0.1
+3  ;---------------------------------------------
+4  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+5  L  X+0  Y+0 R0 FMAX
+6  CYCL DEF 7.0 PUNKT BAZOWY
+7  CYCL DEF 7.1 IX-60
+8  ;
+9  L  X+0  Y+0 R0 FMAX
+10 ;---------------------------------------------
+11 ;
+12 ;
+13 * - TOR-25
+14 TOOL CALL 13 Z S1300 F700
+15 L  X+0  Y+0 R0 FMAX
+16 M8 M3
+17 CYCL DEF 252 WYBRANIE KOLOWE ~
+    Q215=+0    ;RODZAJ OBROBKI ~
+    Q223=+89   ;SREDNICA OKREGU ~
+    Q368=+0    ;NADDATEK NA STRONE ~
+    Q207= AUTO ;POSUW FREZOWANIA ~
+    Q351=+1    ;RODZAJ FREZOWANIA ~
+    Q201=-23   ;GLEBOKOSC ~
+    Q202=+0.7  ;GLEBOKOSC DOSUWU ~
+    Q369=+0    ;NADDATEK NA DNIE ~
+    Q206=+300  ;WARTOSC POSUWU WGL. ~
+    Q338=+0    ;DOSUW - OBR.WYKONCZ. ~
+    Q200=+0.5  ;BEZPIECZNA WYSOKOSC ~
+    Q203=+0    ;WSPOLRZEDNE POWIERZ. ~
+    Q204=+50   ;2-GA BEZPIECZNA WYS. ~
+    Q370=+1    ;ZACHODZENIE TOROW ~
+    Q366=+1    ;ZAGLEBIANIE ~
+    Q385= AUTO ;POSUW OBR.WYKAN.
+18 CYCL CALL
+19 M5 M9
+20 ;
+21 ;
+22 ;---------------------------------------------
+23 L  Z+0 R0 FMAX M91
+24 L  X+260  Y+535 R0 FMAX M91
+/ 25 L M30
+26 * - -----------------------------------------
+27 END PGM 90H7-ZGR-60mm MM 
