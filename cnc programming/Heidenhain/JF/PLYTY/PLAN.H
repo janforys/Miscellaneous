@@ -1,0 +1,43 @@
+0  BEGIN PGM PLAN MM 
+1  BLK FORM 0.1 Z  X-100  Y-100  Z-35
+2  BLK FORM 0.2  X+100  Y+100  Z+0
+3  ;---------------------------------------------
+4  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+2    ;NR PKT BAZOWEGO
+5  ;---------------------------------------------
+6  ;
+7  TOOL CALL 27 Z S6666 F2000
+8  L  X+0  Y+0 R0 FMAX
+9  M8 M3
+10 CYCL DEF 232 FREZOW.PLANOWE ~
+    Q389=+2    ;STRATEGIA ~
+    Q225=+0    ;PKT.STARTU 1SZEJ OSI ~
+    Q226=+0    ;PKT.STARTU 2GIEJ OSI ~
+    Q227=+2    ;PKT.STARTU 3CIEJ OSI ~
+    Q386=+0    ;PUNKT KONCOWY 3. OSI ~
+    Q218=+111  ;DLUG. 1-SZEJ STRONY ~
+    Q219=+30   ;DLUG. 2-GIEJ STRONY ~
+    Q202=+5    ;MAX. GLEB. DOSUWU ~
+    Q369=+0.15 ;NADDATEK NA DNIE ~
+    Q370=+1    ;MAX. NAKLADANIE ~
+    Q207= AUTO ;POSUW FREZOWANIA ~
+    Q385= AUTO ;POSUW OBR.WYKAN. ~
+    Q253= MAX ;PREDK. POS. ZAGLEB. ~
+    Q200=+2    ;BEZPIECZNA WYSOKOSC ~
+    Q357=+2    ;ODST. BEZP. Z BOKU ~
+    Q204=+50   ;2-GA BEZPIECZNA WYS.
+11 CYCL CALL
+12 M5 M9
+13 ;
+14 ;---------------------------------------------
+15 L  Z-5 R0 FMAX M91
+16 L  X+260  Y+535 R0 FMAX M91
+17 L M30
+18 * - -----------------------------------------
+19 * - LBL1 
+20 LBL 1
+21 M3
+22 L  X+0  Y+0 R0 FMAX M99
+23 LBL 0
+24 ;
+25 END PGM PLAN MM 

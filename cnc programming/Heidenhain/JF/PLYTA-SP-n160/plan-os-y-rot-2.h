@@ -1,0 +1,54 @@
+0  BEGIN PGM plan-os-y-rot-2 MM 
+1  BLK FORM 0.1 Z  X+0  Y-380  Z+0
+2  BLK FORM 0.2  X+812  Y+0  Z+10
+3  ;---------------------------------------------
+4  CYCL DEF 247 USTAWIENIE PKT.BAZ ~
+    Q339=+1    ;NR PKT BAZOWEGO
+5  CYCL DEF 7.0 PUNKT BAZOWY
+6  CYCL DEF 7.1 IX+20
+7  ;---------------------------------------------
+8  ;
+9  * - GLOW 80 NM
+10 STOP
+11 TOOL CALL 44 Z S5000 F1500 DL+0.17
+12 M8
+13 CYCL DEF 232 FREZOW.PLANOWE ~
+    Q389=+2    ;STRATEGIA ~
+    Q225=+0    ;PKT.STARTU 1SZEJ OSI ~
+    Q226=+20   ;PKT.STARTU 2GIEJ OSI ~
+    Q227=+3    ;PKT.STARTU 3CIEJ OSI ~
+    Q386=+0    ;PUNKT KONCOWY 3. OSI ~
+    Q218=-375  ;DLUG. 1-SZEJ STRONY ~
+    Q219=-40   ;DLUG. 2-GIEJ STRONY ~
+    Q202=+1.5  ;MAX. GLEB. DOSUWU ~
+    Q369=+0    ;NADDATEK NA DNIE ~
+    Q370=+1.85 ;MAX. NAKLADANIE ~
+    Q207= AUTO ;POSUW FREZOWANIA ~
+    Q385= AUTO ;POSUW OBR.WYKAN. ~
+    Q253=+3000 ;PREDK. POS. ZAGLEB. ~
+    Q200=+5    ;BEZPIECZNA WYSOKOSC ~
+    Q357=+5    ;ODST. BEZP. Z BOKU ~
+    Q204=+50   ;2-GA BEZPIECZNA WYS.
+14 ;
+15 CYCL DEF 10.0 OBROT
+16 CYCL DEF 10.1  ROT+90
+17 ;
+18 CALL LBL 1
+19 ;
+20 M5 M9
+21 ;
+22 CYCL DEF 10.0 OBROT
+23 CYCL DEF 10.1  ROT+0
+24 ;
+25 ;
+26 ;---------------------------------------------
+27 L  Z-5 R0 FMAX M91
+28 L  X+260  Y+535 R0 FMAX M91
+29 L M30
+30 * - -----------------------------------------
+31 * - LBL1 
+32 LBL 1
+33 M3
+34 L  X+0  Y+0 R0 FMAX M99
+35 LBL 0
+36 END PGM plan-os-y-rot-2 MM 
